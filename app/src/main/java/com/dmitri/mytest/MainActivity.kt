@@ -30,7 +30,25 @@ class MainActivity : AppCompatActivity() {
                     emailInput.error = errorEmail
                     Toast.makeText(this@MainActivity, errorEmail, Toast.LENGTH_SHORT).show()
                 }
+                if (passwordsAreEqual(
+                        passwordInput.text.toString(),
+                        repeatPasswordInput.text.toString()
+                    )
+                ) {
+                    Toast.makeText(
+                        this@MainActivity,
+                        getString(R.string.passwords_match),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    val errorPassword = getString(R.string.passwords_error)
+                    Toast.makeText(this@MainActivity, errorPassword, Toast.LENGTH_SHORT).show()
+                }
             }
         }
+    }
+
+    fun passwordsAreEqual(passwordInput: String, repeatPasswordInput: String): Boolean {
+        return true
     }
 }
